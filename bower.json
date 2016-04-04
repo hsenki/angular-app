@@ -1,0 +1,26 @@
+{
+  "name": "angular-app",
+  "description": "Angular App",
+  "main": "index.html",
+  "authors": [
+    "HS"
+  ],
+  "license": "BSD",
+  "keywords": [
+    "angular"
+  ],
+  "homepage": "",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.2",
+    "angular": "^1.5.3"
+  }
+}
