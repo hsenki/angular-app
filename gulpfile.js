@@ -5,7 +5,6 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var connect = require('gulp-connect');
-var serveStatic = require('serve-static');
 
 
 //TASKS
@@ -41,22 +40,20 @@ gulp.task('watch', function(){
 	gulp.watch('app/**/*.js',['lint','scripts']);
 	gulp.watch('app/**/*.scss',['sass']);
 	gulp.watch('*.html',['html']);
+	gulp.watch('dist/**/*.*', ['livereload']);
+});
+
+gulp.task('livereload', function() {
+  gulp.src('dist/**/*.*')
+    .pipe(connect.reload());
 });
 
 gulp.task('connect', function(){
 	connect.server({
-		port:9500,
-		livereload:true
+		port:9600
 	});
 });
 
-gulp.task('serveStatic', function(){
-	var app = connect();
-
-	app.use(serveStatic("./angularjs"));
-	app.listen(9500);
-})
-
 gulp.task('default', ['lint', 'sass', 'scripts']);
-gulp.task('serve', ['default', 'connect', 'watch', 'serveStatic']);
+gulp.task('serve', ['default', 'connect', 'watch']);
 
