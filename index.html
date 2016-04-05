@@ -3,14 +3,28 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Angular App</title>
+	<title>Angular To Do App</title>
 	 <link type="text/css" rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
      <link type="text/css" rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
      <link type="text/css" rel="stylesheet" href="/dist/css/angularProject.css">
 
-     
+
+
 </head>
-<body>
-	
+<body ng-app="mytodo">
+
+<div ng-controller="listController" class="container">
+<h1>To-do List</h1>
+    <div class="jumbotron" ng-repeat="list in todoList">
+      {{todoList.title}}
+    </div>
+</div>
+
+	<!-- Scripts -->
+    	<script src='/bower_components/jquery/dist/jquery.min.js'></script>
+        <script src='/bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+        <script src='/bower_components/angular/angular.js'></script>
+        <script src='/bower_components/angular-ui-router/release/angular-ui-router.js'></script>
+        <script src="/dist/js/main.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

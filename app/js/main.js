@@ -1,4 +1,3 @@
-var myToDo = angular.module('bookApp',[]);
 var mytodo = angular.module('mytodo', []);
 
 mytodo.controller('listController', function ($scope) {
