@@ -17,7 +17,7 @@ gulp.task('lint', function(){
 
 gulp.task('sass', function(){
      return gulp.src(['app/**/*.scss', '!app/sass/_*.scss'])
-         .pipe(concat('angularProyect.scss'))
+         .pipe(concat('angularProject.scss'))
          .pipe(sass({outputStyle:'expanded'}))
          .pipe(gulp.dest('dist/css'))
          .pipe(connect.reload());
@@ -26,7 +26,7 @@ gulp.task('sass', function(){
 
 gulp.task('scripts',function(){
 	return gulp.src('app/**/*.js')
-		.pipe(concat('angularProyect.js'))
+		.pipe(concat('main.js'))
 		.pipe(gulp.dest('dist/js'))
         .pipe(connect.reload());
 });
@@ -50,7 +50,8 @@ gulp.task('livereload', function() {
 
 gulp.task('connect', function(){
 	connect.server({
-		port:9600
+		port:9600,
+		livereload:true
 	});
 });
 

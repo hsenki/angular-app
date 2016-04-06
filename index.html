@@ -6,18 +6,35 @@
 	<title>Angular To Do App</title>
 	 <link type="text/css" rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
      <link type="text/css" rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
-     <link type="text/css" rel="stylesheet" href="/dist/css/angularProject.css">
+     <link type="text/css" rel="stylesheet" href="dist/css/angularProject.css">
 
 
 
 </head>
 <body ng-app="mytodo">
 
-<div ng-controller="listController" class="container">
+<div ng-controller="listController as listado" class="container">
 <h1>To-do List</h1>
-    <div class="jumbotron" ng-repeat="list in todoList">
-      {{todoList.title}}
-    </div>
+<div class="task-form">
+  <h1>Agregar Task</h1>
+
+  <label>Title: </label><input type="text"></input>
+  <br>
+  <label>Description: </label><textarea></textarea> 
+  <br>
+  <button class="create btn btn-success">Crear Tarea </button>
+
+</div>
+<div class="task-list-frame">
+  <ul class"list-group">
+    <li class="list-group-item jumbotron" ng-repeat="task in listado.todo" >
+      <h2 class="title">{{task.title}}</h2>
+      <p class="description">{{task.description}}</p>
+      <p class="status" >Estado: <span class="actual-status complete" ng-show ="task.done">Incompleta</span> <span class="actual-status incomplete" ng-show ="!task.done">Terminada</span></p>
+      <button class="status-changer btn btn-success" ng-show ="task.done" ng-click="task.done = false">Marcar como hecha</button>
+    </li>
+  </ul>
+</div>
 </div>
 
 	<!-- Scripts -->
@@ -25,6 +42,6 @@
         <script src='/bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
         <script src='/bower_components/angular/angular.js'></script>
         <script src='/bower_components/angular-ui-router/release/angular-ui-router.js'></script>
-        <script src="/dist/js/main.js" type="text/javascript" charset="utf-8"></script>
+        <script src="dist/js/main.js" type="text/javascript" charset="utf-8"> </script>
 </body>
 </html>
